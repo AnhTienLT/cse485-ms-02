@@ -23,10 +23,10 @@ foreach ($categories as $category) {
 // Tính báo cáo theo danh mục bằng foreach
 $categoryReport = [];
 foreach ($categories as $category) {
-    $categoryProducts = filterByCategory($filteredProducts, (int) $category['id']);
+    $categoryProducts = filterByCategory($products, (int) $category['id']);
     $categoryReport[] = [
         'name' => $category['name'],
-        'count' => count($categoryProducts),
+        'count' => countByCategory($products, (int) $category['id']),
         'value' => inventoryValue($categoryProducts),
     ];
 }
